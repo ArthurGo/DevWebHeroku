@@ -1,0 +1,213 @@
+/* menu superior */
+#lupa{
+    float:left;
+    margin:3px 0px 0px -40px;
+    cursor:pointer
+}
+
+.navbar .navbar-collapse {
+    align-items: center;
+    text-align: center;
+}
+
+.navbar .navbar-collapse img{
+    align-items: center;
+    text-align: center;
+}
+
+/***********************************************************************/
+
+/*Carrossel*/
+.carrossel{
+    padding-top: 70px;
+    padding-bottom: 20px;
+    background-color: #000000;
+    margin: 0px;
+    color: white;
+}
+.infos-filme{
+    margin-bottom: 60px;
+    min-height: 60px;
+    padding-top: 0px;
+}
+
+.trailer-filme{
+    position: relative;
+    padding-bottom: 4%;
+    padding-top: 50px; 
+    overflow: hidden;
+}
+.carousel .carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: #454545;
+}
+.carrossel  p {
+    font-size: 15px;
+    padding: 0px;
+    margin: 0px;
+}
+.carousel-fade .carousel-item {
+	opacity: 0;
+	transition-duration: .86400s;
+	transition-property: opacity;
+}
+
+.carousel-fade .carousel-item.active,
+.carousel-fade .carousel-item-next.carousel-item-left,
+.carousel-fade .carousel-item-prev.carousel-item-right {
+	opacity: 1;
+}
+
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-right {
+	opacity: 0;
+}
+
+.carousel-fade .carousel-item-next,
+.carousel-fade .carousel-item-prev,
+.carousel-fade .carousel-item.active,
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-prev {
+	transform: translateX(0);
+	transform: translate3d(0, 0, 0);
+}
+
+/**/
+/*Infos Filme*/
+.infos-filme{
+    position: relative;
+    padding-bottom: 4%;
+    padding-top: 50px; 
+    overflow: hidden;
+}
+
+/*Fim Infos Filme*/
+
+/*destaques*/
+.destaques{
+    padding: 40px;
+    padding-bottom: 40px;
+    background-color: #000000;
+    color: white;
+}
+
+.destaques img{
+    margin: 5px;
+}
+
+.zoom{
+    overflow: hidden;
+}
+
+.zoom img{
+    max-width: 100%;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.zoom:hover img{
+    -moz-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}
+/******************/
+.zoom-r{
+    overflow: hidden;
+}
+
+.zoom-r img{
+    max-width: 100%;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.zoom-r:hover img{
+    -moz-transform: scale(1.25);
+    -webkit-transform: scale(1.25);
+    transform: scale(1.25);
+}
+
+.destaques button{
+    margin: 10px;
+    float: right;
+    color: white;
+}
+
+/*ultimas avaliações*/
+.ultimas-ava{
+    padding-top: 30px;
+    padding: 20px;
+    margin: 0px;
+    background-color: #000000;
+    color: white;
+}
+
+.btn{
+    margin: 10px;
+    float: right;   
+}
+/**/
+
+/*entrevistas-making*/
+.entrevistas-making{
+    padding: 40px;
+    margin:0px;
+    background-color: #000000;
+    color: white;
+}
+.entrevistas-making .itemMk{
+    padding: 0px;
+}
+/**/
+
+
+/*novidades*/
+.novidades{
+    margin: 0px;
+    background-color: white;
+    color: black;
+}
+.novidades img{
+    padding-bottom: 10px;
+}
+
+
+
+
+.noticiasItem a:link {
+    text-decoration-color: none;
+}
+
+.noticiasItem a:hover {
+    text-decoration:none;
+}
+
+/**/
+
+/*Sobre*/
+.sobre{
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: white;
+    color: black;
+}
+/**/
+
+
+/*footer*/
+
+.footer{
+    background-color: #dfdfdf; 
+}
+
+
+.footer img{   
+    height: 50px;
+    width: 60px;
+    padding: 10px;
+}
+

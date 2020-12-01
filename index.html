@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta charset="utf-8">
+
+        <title>The best Portal</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="shortcut icon" href="img/logo.png">
+        <link rel="stylesheet" href="estilos.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <script defer src="geralAjax.js"></script>
+        <script defer src="pesquisas.js"></script>
+        <script defer src="carregarMais.js"></script>
+        <script defer src="redirecionarFilmes.js"></script>
+        <script defer src="scroolSuave.js"></script>
+
+        <script src="jquery-1.6.1.js"></script>     
+        <script src="my_jquery.js"></script>
+
+    </head>
+
+
+    <body>
+        <!--Menu Superior-->
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light container-fluid" style="position: fixed; z-index: 10; ">
+                <div class="zoom-r">
+                    <a class="navbar-brand" href="#"><img src="img/logo.png" alt="logo" style="width: 70px; padding-left: 20px;"></a>
+                </div>
+                <button class="navbar-toggler btn1" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" 
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+                    <div> 
+                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#lancamentos">Lançamentos<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#destaques">Em destaque</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#ultimas-ava">Avaliações</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#entrevistas">Entrevistas&MakingOf</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#novidades">Novidades</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <form class="form-inline my-2 my-lg-0" style="display: inline-flex;">
+                            <input id="search_input" oninput="onInput()" 
+                                class="form-control mr-sm-2 ml-auto" type="search" placeholder="Pesquisar" list="dropdown-menu"> 
+                            <datalist id="dropdown-menu"></datalist>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+               
+        </header>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalSearchFailed"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document"  style="position: static !important; z-index: 15;" >
+                <div class="modal-content" style="background-color: rgb(2, 1, 1) !important; color: white !important; border: 4px solid #000 !important;" >
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ocorreu um erro :(</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div id="modalBody" class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!--Corpo do Site-->
+        <main> 
+            <!--Carrousel-->
+            <div class="row carrossel" id="lancamentos">
+                <h1 class="text-center text-white pt-3 col-12" >Lançamentos</h1> 
+                <div class="col-12">            
+                    <div id="carouselExampleControls" class="carousel slide carousel-fade" data-ride="carousel" data-pause="hover" data-interval="2800" background-color="#0000FF" >  
+                        <ol class="carousel-indicators" style="z-index: 5;">
+                            <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleControls" data-slide-to="1" ></li>
+                            <li data-target="#carouselExampleControls" data-slide-to="2" ></li>
+                            <li data-target="#carouselExampleControls" data-slide-to="3" ></li>
+                            <li data-target="#carouselExampleControls" data-slide-to="4" ></li>
+                        </ol>
+                        <div class="carousel-inner px-4">
+                            <!--Item 1-->
+                            <div class="carousel-item active"> 
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-lg-6 trailer-filme"> 
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe src="https://www.youtube.com/embed/03aoq9yzI9c" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-lg-6">
+                                        <div class="infos-filme">
+                                            <h3>DESTACAMENTO BLOOD</h3>
+                                            </br>
+                                            <p><b>Sinopse: </b> Em Destacamento Blood, durante a Guerra do Vietnã, um esquadrão de soldados negros do Exército 
+                                                dos Estados Unidos, que se autodenominam Bloods, protege o local de um acidente de avião da CIA e recupera sua 
+                                                carga, um recipiente com barras de ouro destinadas ao pagamento do povo Lahu por sua ajuda na luta contra os 
+                                                vietcongues. O esquadrão decide pegar o ouro para si, enterrando o precioso metal para recuperá-lo mais tarde. 
+                                                Contudo, um contra-ataque vietnamita impossibilita a localização do ouro enterrado, após uma explosão de napalm 
+                                                obliterar todos os marcos de identificação. Nos dias de hoje, graças a um deslizamento de terra, os Bloods, já 
+                                                veteranos, rastreiam o local onde o ouro está, tentando reaver a recompensa e o corpo de seu ex-líder que morreu
+                                                durante o ataque vietnamita.</p>
+                                            </br>
+                                            <p><b>Diretor: </b>Spike Lee </p></br>
+                                            <p><b>Roteiro: </b>Spike Lee, Kevin Willmott, Paul De Meo, Danny Bilson </p></br>
+                                            <p><b>Estreia: </b>2020</p></br>
+                                            <p><b>Elenco: </b>Delroy Lindo | Jonathan Majors | Clarke Peters</p></br>
+                                            <p>
+                                                <b>Avaliação: </b>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star-o"></span>
+                                                
+                                            </p>
+                                        </div>     
+                                    </div>
+                                </div>
+                            </div> 
+
+                            <!--Item 2-->
+                            <div class="carousel-item"> 
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-lg-6 trailer-filme"> 
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe src="https://www.youtube.com/embed/rcV1I-397Wg"  
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-lg-6">
+                                        <div class="infos-filme">
+                                            <h3>ENOLA HOLMES</h3>
+                                            </br>
+                                            <p><b>Sinopse: </b> Enola Holmes (Millie Bobby Brown) é uma menina adolescente cujo irmão, 20 anos mais velho, é 
+                                                o renomado detetive Sherlock Holmes (Henry Cavill). Quando sua mãe desaparece, fugindo do confinamento da 
+                                                sociedade vitoriana e deixando dinheiro para trás para que ela faça o mesmo, a menina inicia uma investigação 
+                                                para descobrir o paradeiro dela, ao mesmo tempo em que precisa ir contra os desejos de seu irmão, 
+                                                Mycroft (Sam Claflin), que quer mandá-la para um colégio interno só de meninas.</p>
+                                            </br>
+                                            <p><b>Diretor: </b>Harry Bradbeer </p></br>
+                                            <p><b>Roteiro: </b>Jack Thorne</p></br>
+                                            <p><b>Estreia: </b>2020</p></br>
+                                            <p><b>Elenco: </b>Millie Bobby Brown | Henry Cavill | Sam Claflin</p></br>
+                                            <p>
+                                                <b>Avaliação: </b>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star-o"></span>
+                                                
+                                            </p>
+                                        </div>     
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Item 3-->
+                            <div class="carousel-item"> 
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-lg-6 trailer-filme"> 
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe src="https://www.youtube.com/embed/M2LMRXkAZSY"  
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-lg-6">
+                                        <div class="infos-filme">
+                                            <h3>Harley Quinn: Birds of Prey</h3>
+                                            </br>
+                                            <p><b>Sinopse: </b> Em Aves de Rapina - Arlequina e sua Emancipação Fantabulosa, Arlequina (Margot Robbie), 
+                                                Canário Negro (Jurnee Smollett-Bell), Caçadora (Mary Elizabeth Winstead), Cassandra Cain e a policial 
+                                                Renée Montoya (Rosie Perez) formam um grupo inusitado de heroínas. Quando um perigoso criminoso começa a 
+                                                causar destruição em Gotham, as cinco mulheres precisam se unir para defender a cidade.</p>
+                                            </br>
+                                            <p><b>Diretor: </b>Cathy Yan</p></br>
+                                            <p><b>Roteiro: </b>Christina Hodson</p></br>
+                                            <p><b>Estreia: </b>2020</p></br>
+                                            <p><b>Elenco: </b>Margot Robbie | Mary Elizabeth Winstead | Jurnee Smollett-Belln</p></br>
+                                            <p>
+                                                <b>Avaliação: </b>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star-o "></span>
+                                                <span class="fa fa-star-o"></span>
+                                                
+                                            </p>
+                                        </div>     
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Item 4-->
+                            <div class="carousel-item"> 
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-lg-6 trailer-filme"> 
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe src="https://www.youtube.com/embed/sM_uGhp1LP4"  
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-lg-6">
+                                        <div class="infos-filme">
+                                            <h3>DOIS IRMÃOS: UMA JORNADA FANTÁSTICA</h3>
+                                            </br>
+                                            <p><b>Sinopse: </b> Em um mundo transformado, no qual as criaturas não dependiam mais da magia para viver, dois irmãos elfos 
+                                                recebem um cajado de bruxo de seu falecido pai, capaz de trazê-lo de volta à vida. Inexperientes com qualquer tipo de magia,
+                                                Ian e Barley não conseguem executar o feitiço e acabam gerando uma criatura sem cabeça. Para passar mais um dia com seu pai, 
+                                                eles embarcam em uma jornada fantástica. Ao perceber a ausência dos filhos, sua mãe se une à uma lendária manticora para 
+                                                encontrá-los.</p>
+                                            </br>
+                                            <p><b>Diretor: </b>Dan Scanlon</p></br>
+                                            <p><b>Roteiro: </b>Jason Headley, Keith Bunin</p></br>
+                                            <p><b>Estreia: </b>2020</p></br>
+                                            <!--<p><b>Elenco: </b>Animação</p></br>-->
+                                            <p>
+                                                <b>Avaliação: </b>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star-o "></span>
+                                                <span class="fa fa-star-o"></span>
+                                                
+                                            </p>
+                                        </div>     
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Item 5-->
+                            <div class="carousel-item"> 
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-lg-6 trailer-filme"> 
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe src="https://www.youtube.com/embed/zQEjE_M2Esw"  
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-lg-6">
+                                        <div class="infos-filme">
+                                            <h3>SONIC - O FILME</h3>
+                                            </br>
+                                            <p><b>Sinopse: </b> Sonic, o porco-espinho azul mais famoso do mundo, se junta com os seus amigos para derrotar o terrível 
+                                                Doutor Eggman, um cientista louco que planeja dominar o mundo, e o Doutor Robotnik, responsável por aprisionar 
+                                                animais inocentes em robôs.</p>
+                                            </br>
+                                            <p><b>Diretor: </b>Jeff Fowler</p></br>
+                                            <p><b>Roteiro: </b>Jim Carrey | James Marsden | Tika Sumpter</p></br>
+                                            <p><b>Estreia: </b>2020</p></br>
+                                            <p><b>Elenco: </b>Animação</p></br>
+                                            <p>
+                                                <b>Avaliação: </b>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked "></span>
+                                                <span class="fa fa-star-o"></span>
+                                                
+                                            </p>
+                                        </div>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>  
+                </div>    
+            </div>
+    
+            <!--Em Destaque-->
+            <div class="container-fluid" id="destaques">
+                <div class="row destaques">
+                    <h2 class="col-12 col-sm-12 col-md-6 col-lg-6">Em Destaque no Portal</h2>
+                    <div class="dropdown col-md-6 col-lg-6 w-100">
+                        <select id="categoriasFilme" aria-labelledby="dropdownMenuButton" 
+                            class="btn btn-secondary dropdown-toggle " type="button" data-toggle="dropdown" 
+                            aria-haspopup="true" aria-expanded="false">
+                        </select>
+                       
+                    </div>
+                    <div id="posterDestaques" class="row col-12">
+                    </div>    
+
+                    <div class="col-sm-12 w-100" style="float: right;">
+                        <button onclick="loadMore()" class="btn btn-outline-dark" >+ Carregar mais</button>  
+                    </div>            
+                </div>             
+            </div>
+
+            <!-- Modal Cards Destaques -->
+            <div class="modal fade" id="exampleModal"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" style="background-color: rgb(2, 1, 1) !important; color: white !important; border: 4px solid #000 !important;">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="titleModal"></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div id="modalPoster" class="modal-body" style ="font-style: italic; ">
+                        </div>
+                        <div id="modalPosterFooter" class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"></button>
+                            <button type="button" class="btn btn-primary"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Ultimas Avaliações-->
+            <div class="row ultimas-ava" style="padding-top: 30px;" id="ultimas-ava">
+                <h2 class="col-12 ">Utimas Avaliações</h2>
+                <div class="col-12">
+                    <div class="row">
+                        <!--Item 1-->
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+                            <div class="row ultimas-ava">
+                                <div class="col-4">
+                                    <img src="img/ultimas-ava/user.png " alt="user" class="w-100">
+                                </div>
+                                <div class="col-8" >
+                                    <h3>Josefina Scooby</h3>
+                                    <p>A espera de 10 anos valeu sim à pena. Filme fez jus a um encerramento de uma saga. Marvel nos deu tudo que queríamos. A batalha final é arrepiante, 
+                                    te leva no ápice de todas as emoções. Agora só nos resta aguardar pra ver com o que a Marvel nos fazerá sonhar daqui pra frente. Obrigado Marvel 
+                                    por essa experiência nessa década!</p>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <p>25/04/2019</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Item2-->
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+                            <div class="row ultimas-ava">
+                                <div class="col-4">
+                                    <img src="img/ultimas-ava/user.png " alt="user" class="w-100">
+                                </div>
+                                <div class="col-8" >
+                                    <h3>JP Harison</h3>
+                                    <p> Sobre Senhor do Anéis, demorei para assistir esse filme (2014), mas foi o melhor que já vi, ele é simplesmente fantástico, dispensa elogios, 
+                                    ouso-me a dizer que a trilogia O Senhor dos Anéis é a melhor obra cinematográfica já produzida pela humanidade. Perfeita</p>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star-o"></span>
+                                    <span class="fa fa-star-o"></span>
+                                    <span class="fa fa-star-o"></span>
+                                    <p>22/05/2020</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Item3-->
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+                            <div class="row ultimas-ava">
+                                <div class="col-4">
+                                    <img src="img/ultimas-ava/user.png " alt="user" class="w-100">
+                                </div>
+                                <div class="col-8" >
+                                    <h3>Ana</h3>
+                                    <p>Sobre Rei Do Crime, Simplesmente Incrível; "Para filmes online" deveria ser para cinema e vencer disparado o Oscar. Maravilhoso filme. Nota 1000</p>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star-o"></span>
+                                    <span class="fa fa-star-o"></span>
+                                    <p>15/09/2020</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Item4-->
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+                            <div class="row ultimas-ava">
+                                <div class="col-4">
+                                    <img src="img/ultimas-ava/user.png " alt="user" class="w-100">
+                                </div>
+                                <div class="col-8" >
+                                    <h3>Francisca</h3>
+                                    <p>Sobre a animação de Scooby - O filme, é um filme sobre o salsicha e o Scooby! O filme mostra como a turma do Scooby-Doo se conheceu A cena mais marcante é a do salsicha indo embora spoiler: 
+                                    Scooby e a turma são atacados pelo vilão da animação corrida maluca :Dick Vigarista e seus robôs Em geral o filme é muito bom!</p>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star-o"></span>
+                                    <p>01/10/2020</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>           
+                </div>
+                
+            </div>
+
+            <!--Entrevistas & Making of-->
+            <div class="row entrevistas-making"  id="entrevistas">
+                <h2 class="col-12" style="padding-bottom: 20px;">Entrevistas & Making of</h2>
+                <div class="col-12">
+                    <div class="row">
+                        <!--Item 1-->
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-3 ">
+                            <div class="row itemMk">
+                            <div class="col-12">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <iframe src="https://www.youtube.com/embed/0PfH-Zqxq9g" frameborder="0" allow="accelerometer; autoplay; 
+                                    clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <h4>Filme: VINGADORES: ULTIMATO</h4>
+                                <p><strong>Diretor: </strong>Anthony Russo, Joe Russo</p>
+                                <p><strong>Roteiro: </strong>Christopher Markus, Stephen McFeely</p>
+                                <p><strong>Estreia: </strong>2019</p>
+                            </div>
+                            </div>
+                        </div>
+                        
+                        <!--Item 2-->
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-3 ">
+                            <div class="row itemMk">
+                            <div class="col-12">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <iframe src="https://www.youtube.com/embed/1DTxO9tW2p4" frameborder="0" allow="accelerometer; autoplay; 
+                                    clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                                </div>
+                            </div>
+                            <div class="col-12 ">
+                                <h4>Série: STRANGER THINGS - 3 temporada</h4>
+                                <p><strong>Diretor: </strong>Matt Duffer e Ross Duffer</p>
+                                <p><strong>Roteiro: </strong>Matt Duffer e Ross Duffer</p>
+                                <p><strong>Estreia: </strong>2019</p>
+                            </div>
+                            </div>
+                        </div>
+
+                        <!--Item 3-->
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-3 ">
+                            <div class="row itemMk">
+                            <div class="col-12">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <iframe src="https://www.youtube.com/embed/xQvuDsBvkHE" frameborder="0" allow="accelerometer; autoplay; 
+                                    clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                                </div>
+                            </div>
+                            <div class="col-12 ">
+                                <h4>Série: THE WITCHER</h4>
+                                <p><strong>Diretor: </strong>Marek Brodzki</p>
+                                <p><strong>Roteiro: </strong>Andrzej Sapkowski</p>
+                                <p><strong>Estreia: </strong>2019</p>
+                            </div>
+                            </div>
+                        </div>
+                        
+                        <!--Item 4-->
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-3 ">
+                            <div class="row itemMk">
+                            <div class="col-12">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <iframe src="https://www.youtube.com/embed/qC_OBEkLvDM" frameborder="0" allow="accelerometer; autoplay; 
+                                    clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                                </div>
+                            </div>
+                            <div class="col-12 ">
+                                <h4>Filme: HOMEM-ARANHA: De volta ao Lar</h4>
+                                <p><strong>Diretor: </strong>Jon Watts</p>
+                                <p><strong>Roteiro: </strong>Chris McKenna
+                                    John Francis Daley, Jonathan Goldstein, Christopher Ford, Erik Sommers </p>
+                                <p><strong>Estreia: </strong>2017</p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>   
+            </div>
+    
+            <!--Noticias e Sobre-->
+            <div class="container" >
+                <div class="row">
+                    <!--Novidades-->
+                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 novidades" id="novidades"">
+                        <h2>Novidades</h2>      
+                        <div class="row noticiasItem zoom">
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 " >
+                                <img src="img/Noticias/noticia_enola.jpg" style="width: 100%;">
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-8 col-lg-8 ">
+                                <a href="http://www.adorocinema.com/noticias/filmes/noticia-156126/" target="_black"><h4>Como Enola Holmes se compara a outros filmes de Sherlock?</h4></a>
+                                <p>Produção estralada por Millie Bobby Brown já está disponível na Netflix.</p>
+                            </div>
+                        </div>
+            
+                        <div class="row noticiasItem zoom">
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4" >
+                                <img src="img/Noticias/enfermeira.jpg" style="width: 100%;">
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-8 col-lg-8 ">
+                                <a href="http://www.adorocinema.com/noticias/filmes/noticia-156030/" target="_black"><h5>Enfermeira Ratched: Conheça a personagem e entenda sua importância para o cinema</h5></a>
+                                <p>Prestes a ganhar uma série na Netflix, personagem eternizada em Um Estranho no Ninho é considerada uma das piores vilãs da História.</p>
+                            </div>
+                        </div>
+            
+                        <div class="row noticiasItem zoom">
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4" >
+                                <img src="img/Noticias/7filmes.jpg" style="width: 100%;">
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-8 col-lg-8 ">
+                                <a href="http://www.adorocinema.com/noticias/filmes/noticia-155967/" target="_black"><h5>7 Filmes e séries para assistir online neste fim de semana</h5></a>
+                                <p>Entre os lançamentos dos streamings e clássicos das telonas, separamos opções para quem fica hoooras escolhendo o que assistir na TV.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Sobre e Editorial-->
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 sobre">
+                        <!--Sobre-->
+                        <div class="row">
+                            <h2>Sobre</h2>
+                            <p>Trabalho acadêmico disponibilizado pela disciplina de Desenvolvimento de Interfaces WEB oferecida pela PUC Minas. Tem o intuito através do desenvolvimento de 
+                                uma interface de um Site, aplicar os conhecimentos ministratos nas aulas virtuais para que assim seja fixado o conhecimento.</p>
+                        </div>
+                        <!--Editorial-->
+                        <div class="row">
+                            <h2 class="col-12" style="padding: 0px;">Editorial</h2>
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="img/Noticias/avatar.png">
+                                </div>
+                                <div class="col-10">
+                                    <p><b>Redação: </b>Arthur Andrade Gonçalves</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="img/Noticias/avatar.png">
+                                </div>
+                                <div class="col-10">
+                                <p><b>Pesquisa: </b> Arthur Andrade Gonçalves</p>
+                                </div>
+                            </div>
+                
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="img/Noticias/avatar.png">
+                                </div>
+                                <div class="col-10">
+                                    <p><b> Geral: </b> Arthur Andrade Gonçalves</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Redes sociais-->
+                        <div class="row">
+                            <h2 class="col-12" style="padding: 0px;">Redes Sociais </h2>
+                            <div class="row">
+                                <div class="col-4 zoom-r">                           
+                                    <img src="img/social/instagram.png" alt="instagram" style="max-width: 35px; max-height: 35px;">
+                                </div>
+                                <div class="col-4 zoom-r">  
+                                    <img src="img/social/twitter.png" alt="twitter" style="max-width: 35px; max-height: 35px;">
+                                </div>
+                                <div class="col-4 zoom-r">  
+                                    <img src="img/social/facebook.png" alt="facebook" style="max-width: 35px; max-height: 35px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!--Rodapé-->
+        <div class="col-12" style="background-color: #dfdfdf;">
+            <footer class="container footer">
+                    <div class="row">
+                        <p class="col-6" style="margin-top: 10px; margin-left: 20%;"> 2020 - Disciplina de Desenvolvimento de Interfaces WEB - <b>ICEI PUC MINAS</b></p>
+                        <div class="zoom-r">
+                            <img  src="img/logo.png" alt="logo">                      
+                        </div>
+                        
+                    </div>
+            </footer>
+        </div>
+        
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" 
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
+        crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+         crossorigin="anonymous"></script>                
+    </body>
+
+
+</html>
